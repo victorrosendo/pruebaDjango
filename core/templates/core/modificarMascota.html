@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Inicio</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body class="fondo">
+
+    <!-- Menu Principal   -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">MisMascotas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">INICIO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">NOSOTROS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ADOPTA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">COLABORA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SERVICIOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactanos.html">CONTÁCTANOS</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Fin del Menu Principal   -->
+
+    <!-- Banner-->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'core/imagenes/banner1.jpg' %}" alt="Los Angeles" width="1100" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static  'core/imagenes/banner3.jpg'  %}" alt="Chicago" width="1100" height="500">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static  'core/imagenes/banner4.jpg'  %}" alt="New York" width="1100" height="500">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon" style="width: 48px !important;height: 49px !important;"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon" style="width: 48px !important;height: 49px !important;"></span>
+        </a>
+    </div>
+    <!-- Fin Banner -->
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Listado de Mascotas</h1>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form action="" id="formulario_registro" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="chip">Código de Chip: </label>
+                        <input class="form-control" type="number" value="" id="chip" name="chip" required readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la Mascota: </label>
+                        <input type="text" class="form-control" value="" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edad">Edad de la Mascota: </label>
+                        <input class="form-control" type="number" value="" id="edad" name="edad" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre de la Raza: </label>
+                        <select class="form-control" name="raza" id="raza">
+
+                            <option value="1" selected>Pedigri</option>
+
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Modificar Mascota</button>
+
+
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

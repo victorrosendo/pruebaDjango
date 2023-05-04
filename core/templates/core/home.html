@@ -36,10 +36,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">INICIO</a>
+                    <a class="nav-link" href="{% url 'home' %}">INICIO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">NOSOTROS</a>
+                    <a class="nav-link" href="{% url 'regis' %}">REGISTRAR</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ADOPTA</a>
@@ -113,15 +113,16 @@
                         <td>Acción</td>
                     </tr>
 
+                    {% for m in masc %}
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ m.codigoChip }}</td>
+                        <td>{{ m.nombreMascota }}</td>
+                        <td>{{ m.raza.nombreRaza }}</td>
                         <td><a href="">Eliminar</a><br>
                             <a href="">Modificar</a>
                         </td>
                     </tr>
-
+                    {% endfor %}
 
 
                 </table>

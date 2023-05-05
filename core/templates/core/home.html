@@ -105,6 +105,15 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
+
+                {% if messages %}
+                <div>
+                    {% for i in messages %}
+                    <p style="color: red;">{{ i }}</p>
+                    {% endfor %}
+                </div>
+
+                {% endif %}
                 <table>
                     <tr>
                         <td>Chip</td>
@@ -118,8 +127,8 @@
                         <td>{{ m.codigoChip }}</td>
                         <td>{{ m.nombreMascota }}</td>
                         <td>{{ m.raza.nombreRaza }}</td>
-                        <td><a href="">Eliminar</a><br>
-                            <a href="">Modificar</a>
+                        <td><a href="{% url 'eliminar' m.codigoChip %}">Eliminar</a><br>
+                            <a href="{% url 'modificar' m.codigoChip %}">Modificar</a>
                         </td>
                     </tr>
                     {% endfor %}
